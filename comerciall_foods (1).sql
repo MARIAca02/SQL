@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-03-2024 a las 16:09:10
+-- Tiempo de generación: 04-04-2024 a las 17:07:35
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -198,7 +198,7 @@ INSERT INTO `despacho` (`cod_despacho`, `contratista_cod`, `factura_cod`, `fecha
 (390, 6, 25, '2023-08-12', '2023-08-12', 250000, 's', 0),
 (391, 7, 26, '2023-08-12', '2023-08-12', 260000, 's', 0),
 (392, 1, 21, '2023-08-13', '2023-08-13', 320000, 's', 0),
-(393, 2, 22, '2023-08-13', '2023-08-13', 300000, 's', 0),
+(393, 2, 22, '2023-08-13', '2023-08-15', 300000, 's', 0),
 (394, 3, 23, '2023-08-13', '2023-08-13', 310000, 's', 0),
 (395, 4, 24, '2023-08-13', '2023-08-13', 310000, 's', 0),
 (396, 5, 25, '2023-08-13', '2023-08-13', 230000, 's', 0),
@@ -206,7 +206,7 @@ INSERT INTO `despacho` (`cod_despacho`, `contratista_cod`, `factura_cod`, `fecha
 (398, 7, 27, '2023-08-14', '2023-08-14', 260000, 's', 0),
 (399, 1, 28, '2023-08-14', '2023-08-14', 270000, 's', 0),
 (400, 2, 29, '2023-08-15', '2023-08-15', 290000, 's', 0),
-(401, 3, 30, '2023-08-15', '2023-08-15', 300000, 's', 0),
+(401, 3, 30, '2023-08-15', '2023-08-17', 300000, 's', 0),
 (402, 4, 31, '2023-08-15', '2023-08-15', 320000, 's', 0),
 (403, 5, 32, '2023-08-15', '2023-08-15', 280000, 's', 0),
 (404, 6, 33, '2023-08-15', '2023-08-15', 350000, 's', 0),
@@ -243,7 +243,7 @@ INSERT INTO `despacho` (`cod_despacho`, `contratista_cod`, `factura_cod`, `fecha
 (435, 6, 25, '2023-08-12', '2023-08-12', 250000, 's', 0),
 (436, 7, 26, '2023-08-12', '2023-08-12', 260000, 's', 0),
 (437, 1, 21, '2023-08-13', '2023-08-13', 320000, 's', 0),
-(438, 2, 22, '2023-08-13', '2023-08-13', 300000, 's', 0),
+(438, 2, 22, '2023-08-13', '2023-08-15', 300000, 's', 0),
 (439, 3, 23, '2023-08-13', '2023-08-13', 310000, 's', 0),
 (440, 4, 24, '2023-08-13', '2023-08-13', 310000, 's', 0),
 (441, 5, 25, '2023-08-13', '2023-08-13', 230000, 's', 0),
@@ -251,7 +251,7 @@ INSERT INTO `despacho` (`cod_despacho`, `contratista_cod`, `factura_cod`, `fecha
 (443, 7, 27, '2023-08-14', '2023-08-14', 260000, 's', 0),
 (444, 1, 28, '2023-08-14', '2023-08-14', 270000, 's', 0),
 (445, 2, 29, '2023-08-15', '2023-08-15', 290000, 's', 0),
-(446, 3, 30, '2023-08-15', '2023-08-15', 300000, 's', 0),
+(446, 3, 30, '2023-08-15', '2023-08-17', 300000, 's', 0),
 (447, 4, 31, '2023-08-15', '2023-08-15', 320000, 's', 0),
 (448, 5, 32, '2023-08-15', '2023-08-15', 280000, 's', 0),
 (449, 6, 33, '2023-08-15', '2023-08-15', 350000, 's', 0),
@@ -282,7 +282,7 @@ CREATE TABLE `empleado` (
   `edad` int(11) NOT NULL CHECK (`edad` >= 18),
   `telefono` varchar(25) NOT NULL,
   `fecha_ingreso` date DEFAULT curdate(),
-  `estado_civil` enum('soltero','casado','divorciado','union libre','viudo') DEFAULT NULL,
+  `estado_civil` enum('soltera','soltero','casado','casada','divorciado','union libre','viudo') DEFAULT NULL,
   `cargo_cod` int(11) NOT NULL,
   `nivel_estudios` enum('primaria','bachillerato','tecnico','tecnologo','profesional','otro') DEFAULT NULL,
   `eps` enum('sanitas','sura','capital salud','nueva  eps','compensar','famisanar','aliansalud') DEFAULT NULL,
@@ -299,18 +299,18 @@ CREATE TABLE `empleado` (
 INSERT INTO `empleado` (`cod_empleado`, `nombre1`, `nombre2`, `apellido1`, `apellido2`, `tipo_documento`, `no_documento`, `sexo`, `direcion`, `ciudad`, `edad`, `telefono`, `fecha_ingreso`, `estado_civil`, `cargo_cod`, `nivel_estudios`, `eps`, `pensiones`, `cesantias`, `banco`, `activo`) VALUES
 (1, 'Gonzalo', '', 'Betancur', 'Arroyave', 'cc', '80161094', 'masculino', 'cra 78c # 5c 48', 'bogota', 30, '3145778421', '2024-03-10', 'soltero', 1, '', 'sanitas', 'colfondos', 'fna', 'BBVA', 'A'),
 (2, 'Santiago', '', 'Betancurt', 'Lemos', 'cc', '79843321', 'masculino', 'cra 71d # 7a 48', 'bogota', 32, '3202568945', '2024-03-10', 'casado', 1, 'tecnico', 'sura', 'proteccion', 'porvenir', 'davivienda', 'A'),
-(3, 'Isabella', '', 'Marquez', 'Jaramillo', 'cc', '52951079', 'femenino', 'CALLE 28 #58-69', 'barranquila', 28, '3457634512', '2024-03-10', 'viudo', 2, '', 'capital salud', 'colfondos', 'colfondos', '', 'A'),
-(4, 'Karla', 'Maria', 'Molina', 'Lema', 'cc', '53456798', 'femenino', 'cra 78c # 5c 25', 'cali', 34, '3124772431', '2024-03-10', 'casado', 2, 'tecnico', '', 'proteccion', 'fna', 'popular', 'A'),
-(5, 'Hilda', '', 'Rodriguez', 'Caro', 'cc', '1020567980', 'femenino', 'Av 68 # 5a _45', 'bogota', 31, '3025975960', '2024-03-10', 'casado', 2, 'profesional', 'sanitas', 'porvenir', 'proteccion', '', 'A'),
-(6, 'Victoria', '', 'Hincapie', 'Vergara', 'cc', '19654789', 'femenino', 'Calle 10 # 5-51', 'medellin', 22, '3103336590', '2024-03-10', 'union libre', 2, '', 'sura', 'porvenir', 'colfondos', 'popular', 'A'),
+(3, 'Isabella', '', 'Marquez', 'Jaramillo', 'cc', '52951079', 'femenino', 'CALLE 28 #58-69', 'barranquilla', 28, '3457634512', '2024-03-10', 'casada', 2, '', 'capital salud', 'colfondos', 'colfondos', '', 'A'),
+(4, 'Karla', 'Maria', 'Molina', 'Lema', 'cc', '53456798', 'femenino', 'cra 78c # 5c 25', 'cali', 34, '3124772431', '2024-03-10', 'soltera', 2, 'tecnico', '', 'proteccion', 'fna', 'popular', 'A'),
+(5, 'Hilda', '', 'Rodriguez', 'Caro', 'cc', '1020567980', 'femenino', 'Av 68 # 5a _45', 'bogota', 31, '3025975960', '2024-03-10', 'soltera', 2, 'profesional', 'sanitas', 'porvenir', 'proteccion', '', 'A'),
+(6, 'Victoria', '', 'Hincapie', 'Vergara', 'cc', '19654789', 'femenino', 'Calle 10 # 5-51', 'medellin', 22, '3103336590', '2024-03-10', 'casada', 2, '', 'sura', 'porvenir', 'colfondos', 'popular', 'A'),
 (7, 'Pablo', 'Santiago', 'Rojas', 'Duque', 'cc', '1018765324', 'masculino', 'Calle 100 # 11B-27 Bogotá', 'bogota', 25, '3456676895', '2024-03-10', 'soltero', 2, 'primaria', 'capital salud', 'colfondos', 'fna', 'davivienda', 'A'),
-(8, 'Pamela', '', 'Serna', 'Muñoz', 'cc', '1010654382', 'femenino', 'Calle 53 No 10-60/46, Pis', 'barranquila', 40, '3225986478', '2024-03-10', 'union libre', 2, 'tecnico', '', '', 'porvenir', 'BBVA', 'A'),
-(9, 'Stepania', '', 'Zapata', 'Pelaez', 'cc', '1014343567', 'femenino', 'Carrera 21 # 17 -63', 'cali', 25, '3028912345', '2024-03-10', 'casado', 2, '', 'sanitas', 'porvenir', 'fna', 'davivienda', 'A'),
+(8, 'Pamela', '', 'Serna', 'Muñoz', 'cc', '1010654382', 'femenino', 'Calle 53 No 10-60/46, Pis', 'barranquilla', 40, '3225986478', '2024-03-10', 'soltera', 2, 'tecnico', '', '', 'porvenir', 'BBVA', 'A'),
+(9, 'Stepania', '', 'Zapata', 'Pelaez', 'cc', '1014343567', 'femenino', 'Carrera 21 # 17 -63', 'cali', 25, '3028912345', '2024-03-10', 'soltera', 2, '', 'sanitas', 'porvenir', 'fna', 'davivienda', 'A'),
 (10, 'Manuel', 'Andres', 'Toro', 'Sanchez', 'cc', '1013567900', 'masculino', 'Calle 24D #5676', 'medellin', 28, '3026598745', '2024-03-10', 'casado', 2, 'profesional', 'sura', '', 'colfondos', 'popular', 'A'),
-(11, 'Barbara', '', 'Henao', 'Cano', 'cc', '51593856', 'femenino', 'CALLE 12#45-17', 'bogota', 35, '8018043009', '2024-03-10', 'viudo', 4, 'profesional', 'capital salud', 'colfondos', 'colfondos', '', 'A'),
+(11, 'Barbara', '', 'Henao', 'Cano', 'cc', '51593856', 'femenino', 'CALLE 12#45-17', 'bogota', 35, '8018043009', '2024-03-10', 'soltera', 4, 'profesional', 'capital salud', 'colfondos', 'colfondos', '', 'A'),
 (12, 'Leonardo', '', 'Vasquez', 'Uribe', 'cc', '79804568', 'masculino', 'Av 26 No 59-51 Edificio A', 'medellin', 24, '3201452698', '2024-03-10', 'union libre', 4, 'tecnico', '', 'proteccion', 'proteccion', '', 'A'),
-(13, 'Juliana', '', 'Castrillón', 'Florez', 'cc', '1015678904', 'femenino', 'Av Boyaca #  2a 71', 'cali', 32, '3412589678', '2024-03-10', 'soltero', 3, '', 'sanitas', 'colfondos', 'colfondos', 'davivienda', 'A'),
-(14, 'Rocio', '', 'Muñoz', 'Gutierrez', 'cc', '1015768903', 'femenino', 'CR 5B #50-49A SUR', 'barranquila', 37, '3125847512', '2024-03-10', 'casado', 3, 'tecnico', 'sura', 'porvenir', 'porvenir', 'BBVA', 'A');
+(13, 'Juliana', '', 'Castrillón', 'Florez', 'cc', '1015678904', 'femenino', 'Av Boyaca #  2a 71', 'cali', 32, '3412589678', '2024-03-10', 'soltera', 3, '', 'sanitas', 'colfondos', 'colfondos', 'davivienda', 'A'),
+(14, 'Rocio', '', 'Muñoz', 'Gutierrez', 'cc', '1015768903', 'femenino', 'CR 5B #50-49A SUR', 'barranquilla', 37, '3125847512', '2024-03-10', 'soltera', 3, 'tecnico', 'sura', 'porvenir', 'porvenir', 'BBVA', 'A');
 
 -- --------------------------------------------------------
 
@@ -657,9 +657,9 @@ INSERT INTO `productos` (`cod_producto`, `descripcon`, `valor_compra`, `valor_ve
 (5, 'Salsa de tomate frasco', 6500, 7500, 6000, 4084, '2023-06-01', '2024-06-01', 5, 7),
 (6, 'Jugo Fresa frasco', 2500, 3500, 6500, 4086, '2023-03-01', '2024-03-01', 6, 6),
 (7, 'Leche pasteurizada bsa', 4500, 5500, 7500, 4080, '2023-03-01', '2024-03-01', 1, 5),
-(8, 'Salchichas vaquera x pq', 5500, 6500, 8500, 4070, '2023-08-30', '2023-09-20', 7, 8),
-(9, 'Mortadela vaquera x pq', 7500, 8500, 9500, 4071, '2023-08-30', '2023-09-20', 7, 8),
-(10, 'Salchiperro vaquera x pq', 6500, 7500, 8500, 4072, '2023-08-30', '2023-09-20', 7, 8),
+(8, 'ranchera', 5500, 6500, 8500, 4070, '2023-08-30', '2023-09-20', 7, 8),
+(9, 'ranchera', 7500, 8500, 9500, 4071, '2023-08-30', '2023-09-20', 7, 8),
+(10, 'ranchera', 6500, 7500, 8500, 4072, '2023-08-30', '2023-09-20', 7, 8),
 (11, 'salsa de soya frasco', 5500, 6500, 6500, 4079, '2023-08-20', '2024-09-20', 5, 7),
 (12, 'salsa mayonesa frasco', 5500, 6500, 8000, 4079, '2023-08-20', '2024-09-20', 5, 7),
 (13, 'salsa rosada frasco', 7500, 8500, 7600, 4079, '2023-08-20', '2024-09-20', 5, 7),
@@ -710,7 +710,7 @@ INSERT INTO `proveedor` (`cod_proveedor`, `razon_social`, `tipo_documentos`, `di
 (5, 'LACTEOS VAQUERIA', 'NIT', 'CRA 20 No.22-48', 'MEDELLIN', '76712474', 'serviciocliente@vaqueria.co', 'AMAYA', '3108156311', 'ramayacalinca@vaqueria.co'),
 (6, 'BEBIDAS YAYOS', 'NIT', 'CRA 24 NO.54-32', 'BARRANQUILLA', '68856743', 'clientes@yayos.co', 'FREDY CARDENAS', '3124512107', 'fredy.cardenas@yayos.co'),
 (7, 'SALSAS PIRRY', 'NIT', 'CLL 12A No.37-122', 'CALI', '24457740', ' servicioalcliente@pirry.com', 'SONIA VIVAS', '3194321290', 'soniavivas@pirry.com'),
-(8, 'CARNICOS COWS', 'NIT', 'CLL 220A No.7-122', 'BOGOTA', '24457735', ' servicioalcliente@cows.com', 'BARTIMEO RIOS', '3194321298', 'Bartimeo rios@cows.com');
+(8, 'carnicos zenu', 'NIT', 'CLL 220A No.7-122', 'BOGOTA', '24457735', ' servicioalcliente@cows.com', 'BARTIMEO RIOS', '3194321298', 'Bartimeo rios@cows.com');
 
 -- --------------------------------------------------------
 
